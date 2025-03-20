@@ -1,0 +1,17 @@
+with Function:
+
+    The with function allows you to access properties and methods of an object without repeatedly referencing the object.
+
+
+class Person(var name: String, var age: Int)
+
+    fun printPersonDetails(person: Person) {
+        with(person) {
+            println("Name: $name, Age: $age")
+        }
+    }
+
+    fun main() {
+        val person = Person("Bob", 25)
+        printPersonDetails(person) // Output: Name: Bob, Age: 25
+    }
