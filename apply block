@@ -1,0 +1,16 @@
+apply Function:
+
+    The apply function allows you to configure an object by calling multiple methods on it within a block. It returns the modified object.
+
+
+
+fun createPerson(name: String, age: Int): String {
+        return StringBuilder().apply {
+            append("Name: $name, ")
+            append("Age: $age")
+        }.toString()
+    }
+
+    fun main() {
+        println(createPerson("Alice", 30)) // Output: Name: Alice, Age: 30
+    }
