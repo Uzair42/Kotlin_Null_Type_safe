@@ -1,0 +1,18 @@
+let Function:
+
+    The let function allows you to execute a block of code only if a nullable value is not null.
+    It provides a concise way to perform operations on non-null values.
+
+
+
+fun processText(text: String?) {
+        text?.let {
+            val upperCase = it.uppercase()
+            println("Uppercase: $upperCase")
+        }
+    }
+
+    fun main() {
+        processText("kotlin") // Output: Uppercase: KOTLIN
+        processText(null) // No output
+    }
