@@ -1,0 +1,22 @@
+Kotlin introduce the null safty feature in kotlin for improving the developer speed , for not searching for error related the null pointer exception in log cat , instead foucus on the development .
+We have " question mark as operator for null safty"
+?
+                          Nullability and the ? Operator
+
+    Nullable Types:
+        Kotlin distinguishes between nullable and non-nullable types. A nullable type can hold a null value.
+        You declare a nullable type by appending ? to the type.
+
+
+        Example: String?, Int?, MyClass?.
+
+
+fun printLength(text: String?) {
+        val length = text?.length // length will be null if text is null
+        println("Length: $length")
+    }
+
+    fun main() {
+        printLength("Hello") // Output: Length: 5
+        printLength(null) // Output: Length: null
+    }
