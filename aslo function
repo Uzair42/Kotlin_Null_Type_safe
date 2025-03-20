@@ -1,0 +1,17 @@
+also Function:
+
+    The also function is used when you want to perform additional actions on an object without modifying its value. It returns the original object.
+
+
+  fun configureAndPrint(text: StringBuilder?){
+        text?.also{
+            it.append(" after appending ")
+        }?.also{
+            println(it.toString())
+        }
+    }
+
+    fun main(){
+        configureAndPrint(StringBuilder("Before aslo "))
+        configureAndPrint(null)
+    }
