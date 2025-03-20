@@ -1,0 +1,18 @@
+Elvis Operator ?::
+
+    The Elvis operator ?: provides a default value when a nullable expression is null.
+    It's often used in conjunction with the safe call operator.
+
+Safe Call Operator ?.:
+
+    The safe call operator ?. allows you to access properties or call methods on a nullable object only if it's not null.
+    If the object is null, the expression evaluates to null.
+
+fun getLengthOrDefault(text: String?): Int {
+        return text?.length ?: 0 // Returns the length, or 0 if text is null
+    }
+
+    fun main() {
+        println(getLengthOrDefault("Kotlin")) // Output: 6
+        println(getLengthOrDefault(null)) // Output: 0
+    }
