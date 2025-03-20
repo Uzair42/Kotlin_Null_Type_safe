@@ -1,0 +1,18 @@
+2. The Non-null Assertion Operator !!
+
+    Non-null Assertion:
+        The non-null assertion operator !! converts a nullable type to a non-nullable type.
+        It tells the compiler that you're certain the value is not null.
+        If the value is actually null, a NullPointerException is thrown at runtime.
+        Use with caution! It defeats Kotlin's null safety.
+
+
+fun printLengthForce(text: String?) {
+        val length = text!!.length // Throws NullPointerException if text is null
+        println("Length: $length")
+    }
+
+    fun main() {
+        printLengthForce("Safe") //Output: Length: 4
+        //printLengthForce(null) // Throws NullPointerException
+    }
