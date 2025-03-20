@@ -1,0 +1,17 @@
+run Function:
+
+    The run function is similar to let, but it executes a block of code within the context of an object. It's useful for initializing objects or performing calculations.
+
+
+
+
+fun calculateSquare(number: Int?): Int? {
+        return number?.run {
+            this * this
+        }
+    }
+
+    fun main() {
+        println(calculateSquare(5)) // Output: 25
+        println(calculateSquare(null)) // Output: null
+    }
