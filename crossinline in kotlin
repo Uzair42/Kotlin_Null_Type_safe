@@ -1,0 +1,35 @@
+In Kotlin, crossinline is a modifier used with lambda expressions passed as parameters to inline functions. It prevents non-local returns from within the lambda, ensuring that return statements only exit the lambda itself and not the surrounding function. This is particularly useful when dealing with asynchronous operations where the lambda might be executed after the surrounding function has already returned. 
+Here's a more detailed explanation:
+Inline Functions and Non-Local Returns:
+
+    Inline functions in Kotlin are used to improve performance by copying the function's body directly into the call site, avoiding the overhead of function calls. 
+
+When a lambda is passed as a parameter to an inline function, by default, it can perform non-local returns using return statements. This means a return inside the lambda can exit the entire surrounding function, not just the lambda itself. 
+
+The Role of crossinline:
+
+    crossinline restricts non-local returns within a lambda passed to an inline function. 
+
+When a lambda is marked crossinline, any return statements within it are treated as local returns, meaning they only exit the lambda and not the enclosing function. 
+This is crucial when dealing with asynchronous operations or when you want to ensure that the lambda doesn't prematurely exit the surrounding function. 
+
+Example:
+Kotlin
+
+inline fun foo(crossinline body: () -> Unit) {
+    // body() // Allowed with crossinline
+    object : Runnable {
+        override fun run() {
+            body() // Non-local return prohibited here with crossinline
+        }
+    }.run()
+}
+
+fun test() {
+    foo {
+        println("Before return")
+        //return // Compilation error: 'return' is not allowed here
+        println("After return")
+    }
+    println("After foo")
+}
